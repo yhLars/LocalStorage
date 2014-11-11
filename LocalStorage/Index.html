@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+    <body>
+        <label for="int">Tal: </label>
+        <input type="text" id="int" />
+        <button id="Multiply">Multiplicera</button>
+        <br/>
+        <label for="result">Resultat:</label>
+        <div id="result">
+            <span id="resultat"></span>
+        </div>
+        <br/>
+        <button id="reset">Set Local Storage = 1</button>
+
+        <script src="Scripts/jquery-2.1.1.js"></script>
+        <script>
+            if (!localStorage.sum || isNaN(parseInt(localStorage.sum)))
+                localStorage.sum = "1";
+            $("#Multiply").click(function() {
+                var newNumber = parseInt($("#int").val());
+            
+                localStorage.sum = parseInt(localStorage.sum) * newNumber;
+                document.getElementById('resultat').textContent = localStorage.sum;
+            });
+            $("#reset").click(function() {
+                localStorage.sum = "1";
+                document.getElementById('resultat').textContent = localStorage.sum;
+            });
+        </script>
+</body>
+</html>
